@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Isse padding layout nahi bigadti */
+}
+
+body {
+    overflow-x: hidden; /* Side scroll na aaye */
+    background-color: bisque;
+}
+
+.container {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+} 
+
+.out-box {
+    background-color: pink;
+    width: 90%; /* Default for mobile */
+    max-width: 600px; /* Laptop par isse bada nahi hoga */
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+#gif {
+    max-height: 220px; /* Laptop par control rakhega */
+    width: auto;
+    border-radius: 10px;
+    mix-blend-mode: multiply; /* Agar background white/light green hai toh merge ho jayega */
+}
+
+#text {
+    color: #dc2e77;
+    font-size: clamp(1.5rem, 6vw, 2.5rem); /* Responsive font */
+    margin: 1.5rem 0;
+    line-height: 1.2;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+}
+
+#yes, #no {
+    height: 3.5rem;
+    width: 8rem;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#yes { background-color: #52b788; color: white; }
+#no { background-color: #e63946; color: white; }
+
+#yes:hover, #no:hover { transform: scale(1.1); }
+
+/* Floating Hearts Styling */
+.heart {
+    position: fixed;
+    top: -5vh;
+    animation: fall 3s linear forwards;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* Tablet & Laptop Specific Adjustments */
+@media (min-width: 768px) {
+    .out-box {
+        width: 60vw;
+    }
+    #gif {
+        max-height: 250px;
+    }
+}
